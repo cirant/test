@@ -92,6 +92,7 @@ class Login {
 
   login(user, password) {
     let index = this.idx(user, this.users);
+
     if (this.passwords[index] === password) {
       this.sessions.push(user);
     }
@@ -99,14 +100,7 @@ class Login {
 
   // Gets index of an element in an array
   idx(element, array) {
-    let cont=0;
-    for (let i of array) {
-      if (i === element) {
-        return cont;
-      }
-      cont += 1;
-    }
-    return cont;
+    return array.indexOf(element);
   }
 }
 
@@ -120,7 +114,7 @@ let login = new Login(registeredUsers);
 
 login.registerUser('user4', 'pass4');
 login.login('user4', 'pass4');
-login.updatePassword('user3', 'pass3', 'pass5');
-login.login('user3', 'pass5');
-login.logout('user4');
-login.logout('user3');
+// login.updatePassword('user3', 'pass3', 'pass5');
+// login.login('user3', 'pass5');
+// login.logout('user4');
+// login.logout('user3');
