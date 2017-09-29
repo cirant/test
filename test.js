@@ -5,11 +5,10 @@ class Login {
   constructor(hash) {
     this.sessions = [];
     this.users = [];
-    this.passwords = [];
-    this.passwords = Object.keys(hash).map(k => {
+    this.passwords = typeof hash === 'object'? Object.keys(hash).map(k => {
       this.users = this.users.concat([k]);
       return hash[k];
-    });
+    }) : [];
   }
 
   logout(user) {
