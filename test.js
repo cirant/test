@@ -35,8 +35,27 @@ class Login {
 
   // Register user
   registerUser(user, password) {
-    this.users.push(user);
-    this.passwords.push(password);
+    try{
+
+      if(typeof user !=='string')
+        throw "el usuario debe ser texto";
+
+      if(user.trim()==='')
+        throw "el usuario no puede ser vac\u00edo";
+
+      if(typeof password !=='string')
+        throw "el password debe ser texto";
+
+      if(password.trim()==='')
+        throw "el password no puede ser vac\u00edo";
+
+      this.users.push(user);
+      this.passwords.push(password);
+
+    }catch(e) {
+      console.error("error:",e);
+    };
+    
   }
 
   removeUser(user) {
