@@ -35,9 +35,8 @@ class Login {
 
   // Register user
   registerUser(user, password) {
-    let lastIndex = this.users.length;
-    this.users[lastIndex] = user;
-    this.passwords[lastIndex] = password;
+    this.users.push(user);
+    this.passwords.push(password);
   }
 
   removeUser(user) {
