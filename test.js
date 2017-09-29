@@ -74,15 +74,10 @@ class Login {
 
   updatePassword(user, oldPassword, newPassword) {
     // First we check if the user exists
-    let user1 = '';
-    for (let i of this.users) {
-      if (i === user) {
-        user1 = user;
-      }
-    }
-    if (user1 === user) {
-      let index = this.idx(user, this.users);
-      if (this.passwords[index] === oldPassword) {
+    const index = this.users.indexOf(user);
+
+    if (index) {
+      if (this.checkPassword(user, oldPassword)) {
         this.passwords[index] = newPassword;
         return true;
       }
@@ -91,11 +86,11 @@ class Login {
   }
 
   login(user, password) {
-    let index = this.idx(user, this.users);
 
-    if (this.passwords[index] === password) {
+    if(this.checkPassword(user, password)){
       this.sessions.push(user);
     }
+
   }
 
   // Gets index of an element in an array
@@ -114,7 +109,7 @@ let login = new Login(registeredUsers);
 
 login.registerUser('user4', 'pass4');
 login.login('user4', 'pass4');
-// login.updatePassword('user3', 'pass3', 'pass5');
+login.updatePassword('user3', 'pass3', 'pass5');
 // login.login('user3', 'pass5');
 // login.logout('user4');
 // login.logout('user3');
