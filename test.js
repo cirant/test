@@ -56,8 +56,8 @@ class Login {
 
   checkPassword(user, password) {
     const index = this.users.indexOf(user);
-    let passwordCorrect = this.passwords[index] === password;
-    return passwordCorrect;
+    if(index!==-1)
+    return this.passwords[index] === password;
   }
 
   updatePassword(user, oldPassword, newPassword) {
