@@ -56,11 +56,10 @@ class Login {
   }
 
   removeUser(user) {
-    let index = this.idx(user, this.users);
-    this.users[index] = null;
-    this.passwords[index] = null;
-    this.users = this.users.filter(user => user !== null);
-    this.passwords = this.passwords.filter(password => password !== null);
+    const index = this.idx(user, this.users);
+
+    this.users.splice(index,1);
+    this.passwords.splice(index,1);
   }
 
   checkPassword(user, password) {
@@ -109,4 +108,6 @@ login.login('user4', 'pass4');
 login.updatePassword('user3', 'pass3', 'pass5');
 login.login('user3', 'pass5');
 login.logout('user4');
-// login.logout('user3');
+login.logout('user3');
+login.removeUser('user4');
+console.log("login ",login);
