@@ -50,8 +50,11 @@ class Login {
   removeUser(user) {
     const index = this.users.indexOf(user);
 
-    this.users.splice(index,1);
-    this.passwords.splice(index,1);
+    if(index!==-1){
+      this.users.splice(index,1);
+      this.passwords.splice(index,1);
+    }
+      
   }
 
   checkPassword(user, password) {
@@ -95,6 +98,6 @@ login.registerUser('user4', 'pass4');
 login.login('user4', 'pass4');
 login.updatePassword('user3', 'pass3', 'pass5');
 login.login('user3', 'pass5');
-login.logout('user4');
+login.removeUser('user45');
 login.logout('user3');
 console.log("log ",login);
