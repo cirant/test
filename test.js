@@ -67,7 +67,7 @@ class Login {
     // First we check if the user exists
     const index = this.users.indexOf(user);
 
-    if (index) {
+    if (index!==-1) {
       if (this.checkPassword(user, oldPassword)) {
         this.passwords[index] = newPassword;
         return true;
