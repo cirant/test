@@ -12,12 +12,9 @@ class Login {
   }
 
   logout(user) {
-    this.sessions.forEach((session, i) => {
-      if (session === user) {
-        this.sessions[i] = null;
-      }
-    });
-    this.sessions = this.sessions.filter(session => session !== null);
+    const index = this.sessions.indexOf(user);
+    if(index!==-1)
+      this.sessions.splice(index,1);
   }
 
   // Checks if user exists
@@ -110,6 +107,6 @@ let login = new Login(registeredUsers);
 login.registerUser('user4', 'pass4');
 login.login('user4', 'pass4');
 login.updatePassword('user3', 'pass3', 'pass5');
-// login.login('user3', 'pass5');
-// login.logout('user4');
+login.login('user3', 'pass5');
+login.logout('user4');
 // login.logout('user3');
