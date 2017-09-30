@@ -47,6 +47,7 @@ class Login {
     
   }
 
+  // Remover user 
   removeUser(user) {
     const index = this.users.indexOf(user);
 
@@ -57,14 +58,15 @@ class Login {
       
   }
 
+  // Check if an user's password is equal to other one
   checkPassword(user, password) {
     const index = this.users.indexOf(user);
     if(index!==-1)
     return this.passwords[index] === password;
   }
 
+  // Update a user's password if oldPassword correct
   updatePassword(user, oldPassword, newPassword) {
-    // First we check if the user exists
     const index = this.users.indexOf(user);
 
     if (index!==-1) {
@@ -76,6 +78,7 @@ class Login {
     return false;
   }
 
+  // Add a user to session
   login(user, password) {
 
     if(this.checkPassword(user, password)){
@@ -100,4 +103,3 @@ login.updatePassword('user3', 'pass3', 'pass5');
 login.login('user3', 'pass5');
 login.removeUser('user45');
 login.logout('user3');
-console.log("log ",login);
