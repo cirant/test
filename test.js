@@ -48,14 +48,14 @@ class Login {
   }
 
   removeUser(user) {
-    const index = this.idx(user, this.users);
+    const index = this.users.indexOf(user);
 
     this.users.splice(index,1);
     this.passwords.splice(index,1);
   }
 
   checkPassword(user, password) {
-    let index = this.idx(user, this.users);
+    const index = this.users.indexOf(user);
     let passwordCorrect = this.passwords[index] === password;
     return passwordCorrect;
   }
@@ -81,10 +81,6 @@ class Login {
 
   }
 
-  // Gets index of an element in an array
-  idx(element, array) {
-    return array.indexOf(element);
-  }
 }
 
 let registeredUsers = {
