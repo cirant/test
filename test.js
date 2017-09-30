@@ -19,15 +19,7 @@ class Login {
 
   // Checks if user exists
   userExists(user) {
-    // Temp variable for storing the user if found
-    let temp = '';
-    for (let i of this.users) {
-      if (i === user) {
-        temp = user;
-      }
-    }
-    let exists = (temp !== '' && temp === user);
-    return exists;
+    return this.users.indexOf(user)!==-1;
   }
 
   // Register user
@@ -108,6 +100,3 @@ login.login('user4', 'pass4');
 login.updatePassword('user3', 'pass3', 'pass5');
 login.login('user3', 'pass5');
 login.logout('user4');
-login.logout('user3');
-login.removeUser('user4');
-console.log("login ",login);
